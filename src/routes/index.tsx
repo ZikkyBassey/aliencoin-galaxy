@@ -22,6 +22,7 @@ export const Route = createFileRoute("/")({
 const CA = "78K7QEC9HXgUoT7U19LRKHSJaZt6eMPDGMmxJJHNpump";
 const DEXTOOLS = `https://dexscreener.com/solana/${CA}`;
 const DEXTOOLS_IO = `https://www.dextools.io/app/solana/pair-explorer/${CA}`;
+const PUMPFUN = `https://pump.fun/coin/${CA}`;
 const TELEGRAM = "https://t.me/+p0lFeCz42vw1MzBk";
 const X_URL = "https://x.com/Alien_Coin_Sol";
 
@@ -353,6 +354,7 @@ function Index() {
                 {[
                   { href: DEXTOOLS, label: "DexScreener", desc: "Chart & trades", primary: false },
                   { href: DEXTOOLS_IO, label: "DexTools", desc: "Pair explorer", primary: false },
+                  { href: PUMPFUN, label: "Pump.fun", desc: "Buy on pump.fun", primary: false },
                   { href: TELEGRAM, label: "Telegram", desc: "Daily chat", primary: false },
                   { href: X_URL, label: "X / Twitter", desc: "Announcements", primary: false },
                   { href: DEXTOOLS_IO, label: "Buy $ALIEN", desc: "On Solana", primary: true },
