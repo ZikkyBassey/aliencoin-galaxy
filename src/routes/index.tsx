@@ -192,7 +192,7 @@ function Index() {
               <a key={l} href={`#${l.toLowerCase()}`} className="relative transition hover:text-primary after:absolute after:-bottom-1 after:left-0 after:h-px after:w-0 after:bg-primary after:transition-all hover:after:w-full">{l}</a>
             ))}
           </div>
-          <a href={DEXTOOLS} target="_blank" rel="noopener noreferrer"
+          <a href={PUMPFUN} target="_blank" rel="noopener noreferrer"
             className="shimmer-border relative rounded-full bg-primary px-5 py-2 text-sm font-bold text-primary-foreground shadow-glow transition hover:scale-105 hover:shadow-[0_0_40px_oklch(0.85_0.25_145/0.8)]">
             Buy $ALIEN
           </a>
@@ -216,9 +216,9 @@ function Index() {
               <Typewriter words={["Community first.", "Built on Solana.", "We come in peace.", "Join the swarm."]} />
             </p>
             <div className="mt-8 flex animate-fade-up flex-wrap gap-4" style={{ animationDelay: "0.9s" }}>
-              <a href={DEXTOOLS} target="_blank" rel="noopener noreferrer"
+              <a href={PUMPFUN} target="_blank" rel="noopener noreferrer"
                 className="group relative overflow-hidden rounded-full bg-primary px-7 py-3 font-bold text-primary-foreground shadow-glow transition hover:scale-105">
-                <span className="relative z-10">View on DexTools →</span>
+                <span className="relative z-10">Buy on Pump.fun →</span>
                 <span className="absolute inset-0 animate-shimmer" />
               </a>
               <a href={TELEGRAM} target="_blank" rel="noopener noreferrer"
@@ -357,7 +357,7 @@ function Index() {
                   { href: PUMPFUN, label: "Pump.fun", desc: "Buy on pump.fun", primary: false },
                   { href: TELEGRAM, label: "Telegram", desc: "Daily chat", primary: false },
                   { href: X_URL, label: "X / Twitter", desc: "Announcements", primary: false },
-                  { href: DEXTOOLS_IO, label: "Buy $ALIEN", desc: "On Solana", primary: true },
+                  { href: PUMPFUN, label: "Buy $ALIEN", desc: "On Solana", primary: true },
                 ].map((s) => (
                   <a key={s.label} href={s.href} target="_blank" rel="noopener noreferrer"
                     className={`group flex items-center justify-between rounded-2xl border px-5 py-4 transition-all duration-300 hover:-translate-y-1 ${s.primary ? "border-primary bg-primary text-primary-foreground shadow-glow hover:shadow-[0_0_40px_oklch(0.85_0.25_145/0.8)]" : "border-border bg-card hover:border-primary/60 hover:shadow-glow"}`}>
