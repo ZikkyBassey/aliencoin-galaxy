@@ -58,9 +58,9 @@ function Index() {
               Live on Solana
             </div>
             <h1 className="font-display text-5xl font-black leading-[0.95] md:text-7xl lg:text-8xl">
-              <span className="text-glow">We come</span>
+              <span className="text-glow">We are</span>
               <br />
-              <span className="text-glow-pink">in peace.</span>
+              <span className="text-glow">not alone.</span>
             </h1>
             <p className="mt-6 max-w-lg text-lg text-muted-foreground">
               👽 AlienCoin is a token built on Solana with one mission: assemble a real,
@@ -184,7 +184,7 @@ function Index() {
                 width={1024}
                 height={1024}
                 loading="lazy"
-                className="w-72 animate-pulse-glow md:w-96"
+                className="w-72 animate-pulse-glow rounded-full border-2 border-primary/40 md:w-96"
               />
             </div>
             <div>
