@@ -19,9 +19,29 @@ export const Route = createFileRoute("/")({
   component: Index,
 });
 
-const DEXTOOLS = "https://www.dextools.io/app/token/aliencoin";
+const CA = "78K7QEC9HXgUoT7U19LRKHSJaZt6eMPDGMmxJJHNpump";
+const DEXTOOLS = `https://dexscreener.com/solana/${CA}`;
 const TELEGRAM = "https://t.me/+p0lFeCz42vw1MzBk";
 const X_URL = "https://x.com/Alien_Coin_Sol";
+
+type DexData = { priceUsd: string; volume: { h24: number }; txns: { h24: { buys: number; sells: number } }; marketCap: number };
+
+function useDexData() {
+  const [data, setData] = useState<DexData | null>(null);
+  useEffect(() => {
+    fetch(`https://api.dexscreener.com/latest/dex/tokens/${CA}`)
+      .then((r) => r.json())
+      .then((j) => setData(j.pairs?.[0] ?? null))
+      .catch(() => {});
+  }, []);
+  return data;
+}
+
+function fmt(n: number) {
+  if (n >= 1_000_000) return `$${(n / 1_000_000).toFixed(2)}M`;
+  if (n >= 1_000) return `$${(n / 1_000).toFixed(1)}K`;
+  return `$${n.toFixed(2)}`;
+}
 
 /* ── Particle canvas ── */
 function ParticleCanvas() {
@@ -144,6 +164,8 @@ function Typewriter({ words }: { words: string[] }) {
 
 function Index() {
   useReveal();
+  const dex = useDexData();
+  const txns24h = dex ? dex.txns.h24.buys + dex.txns.h24.sells : null;
 
   return (
     <div className="relative min-h-screen overflow-x-hidden bg-background">
@@ -229,15 +251,13 @@ function Index() {
       <div className="relative z-10 border-y border-primary/20 bg-secondary/20 backdrop-blur-sm">
         <div className="mx-auto grid max-w-7xl grid-cols-2 divide-x divide-primary/20 md:grid-cols-4">
           {[
-            { label: "Holders", val: 1200, suffix: "+" },
-            { label: "Community", val: 5000, suffix: "+" },
-            { label: "Transactions", val: 48000, suffix: "+" },
-            { label: "Chain", val: 0, suffix: "SOLANA" },
+            { label: "Price", value: dex ? `$${parseFloat(dex.priceUsd).toFixed(8)}` : "—" },
+            { label: "Market Cap", value: dex ? fmt(dex.marketCap) : "—" },
+            { label: "24h Volume", value: dex ? fmt(dex.volume.h24) : "—" },
+            { label: "24h Txns", value: txns24h != null ? txns24h.toLocaleString() : "—" },
           ].map((s, i) => (
             <div key={s.label} className="reveal px-8 py-8 text-center" style={{ transitionDelay: `${i * 0.1}s` }}>
-              <div className="font-display text-3xl font-black text-primary">
-                {s.val === 0 ? s.suffix : <><Counter to={s.val} />{s.suffix}</>}
-              </div>
+              <div className="font-display text-2xl font-black text-primary">{s.value}</div>
               <div className="mt-1 text-xs uppercase tracking-widest text-muted-foreground">{s.label}</div>
             </div>
           ))}
