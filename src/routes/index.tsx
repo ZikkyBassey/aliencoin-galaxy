@@ -21,6 +21,7 @@ export const Route = createFileRoute("/")({
 
 const CA = "78K7QEC9HXgUoT7U19LRKHSJaZt6eMPDGMmxJJHNpump";
 const DEXTOOLS = `https://dexscreener.com/solana/${CA}`;
+const DEXTOOLS_IO = `https://www.dextools.io/app/solana/pair-explorer/${CA}`;
 const TELEGRAM = "https://t.me/+p0lFeCz42vw1MzBk";
 const X_URL = "https://x.com/Alien_Coin_Sol";
 
@@ -350,10 +351,11 @@ function Index() {
               <p className="mt-6 text-lg text-muted-foreground">Together we grow the project and take it higher.</p>
               <div className="mt-8 grid gap-3 sm:grid-cols-2">
                 {[
-                  { href: DEXTOOLS, label: "DexTools", desc: "Chart & trades", primary: false },
+                  { href: DEXTOOLS, label: "DexScreener", desc: "Chart & trades", primary: false },
+                  { href: DEXTOOLS_IO, label: "DexTools", desc: "Pair explorer", primary: false },
                   { href: TELEGRAM, label: "Telegram", desc: "Daily chat", primary: false },
                   { href: X_URL, label: "X / Twitter", desc: "Announcements", primary: false },
-                  { href: DEXTOOLS, label: "Buy $ALIEN", desc: "On Solana", primary: true },
+                  { href: DEXTOOLS_IO, label: "Buy $ALIEN", desc: "On Solana", primary: true },
                 ].map((s) => (
                   <a key={s.label} href={s.href} target="_blank" rel="noopener noreferrer"
                     className={`group flex items-center justify-between rounded-2xl border px-5 py-4 transition-all duration-300 hover:-translate-y-1 ${s.primary ? "border-primary bg-primary text-primary-foreground shadow-glow hover:shadow-[0_0_40px_oklch(0.85_0.25_145/0.8)]" : "border-border bg-card hover:border-primary/60 hover:shadow-glow"}`}>
