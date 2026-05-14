@@ -357,7 +357,7 @@ function Index() {
                   { href: PUMPFUN, label: "Pump.fun", desc: "Buy on pump.fun", primary: false },
                   { href: TELEGRAM, label: "Telegram", desc: "Daily chat", primary: false },
                   { href: X_URL, label: "X / Twitter", desc: "Announcements", primary: false },
-                  { href: PUMPFUN, label: "Buy $ALIEN", desc: "On Solana", primary: true },
+
                 ].map((s) => (
                   <a key={s.label} href={s.href} target="_blank" rel="noopener noreferrer"
                     className={`group flex items-center justify-between rounded-2xl border px-5 py-4 transition-all duration-300 hover:-translate-y-1 ${s.primary ? "border-primary bg-primary text-primary-foreground shadow-glow hover:shadow-[0_0_40px_oklch(0.85_0.25_145/0.8)]" : "border-border bg-card hover:border-primary/60 hover:shadow-glow"}`}>
